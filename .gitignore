@@ -73,3 +73,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 UserSettings
+Assets/_game/Scenes/ControllerScene.unity
+Assets/_game/Scenes/ControllerScene.unity.meta
