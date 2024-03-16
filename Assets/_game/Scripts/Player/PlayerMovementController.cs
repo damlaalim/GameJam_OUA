@@ -67,6 +67,17 @@ public class PlayerMovementController : MonoBehaviour
 
         _velocity += _jumpPower;
     }
+    public void Crouch(InputAction.CallbackContext context)//Eðilme eventinin tuþu kullanýldýkça çaðrýlacak fonksiyon
+    {
+        if (context.started)
+        {
+            transform.localScale = new Vector3(1f, 0.5f, 1f);
+        }
+        if (context.canceled)
+        {
+            transform.localScale = Vector3.one;
+        }
+    }
 
     private void ApplyMovement()//Karakterin haraket kodlarý
     {
