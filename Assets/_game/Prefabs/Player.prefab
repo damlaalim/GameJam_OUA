@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6872786729283446735}
   - component: {fileID: 1213943603522922325}
   - component: {fileID: 5060268627908256662}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,11 +122,9 @@ GameObject:
   - component: {fileID: -4830192789420265111}
   - component: {fileID: 1827976040885517159}
   - component: {fileID: 3539133983168877088}
-  - component: {fileID: 5026360585847372791}
-  - component: {fileID: 8664543330726162295}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,6 +261,7 @@ MonoBehaviour:
   _speed: 3
   _speedMultiplier: 2
   run: 0
+  CanInteractive: 0
   CrouchBool: 0
   NeedCrouch: 0
   smoothTime: 0.05
@@ -357,6 +356,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5a0b56b5-a99d-42c4-8579-f53dde08f98d
     m_ActionName: GamePlay/Crouch[/Keyboard/ctrl]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4830192789420265111}
+        m_TargetAssemblyTypeName: PlayerMovementController, Assembly-CSharp
+        m_MethodName: Interactive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 950f8642-ec72-4a95-b490-702dcceb2a6f
+    m_ActionName: GamePlay/Interactive[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: GamePlay
@@ -375,38 +390,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 0}
-  minHeightToFall: -0.7
+  minHeightToFall: -2
   startingPosition: {x: 0, y: 0, z: 0}
---- !u!114 &5026360585847372791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2273505580268083502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a0dad4f23e4497c9fc6f9c9d3a5305c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8664543330726162295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2273505580268083502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 5026360585847372791}
-  _identifier: 
-  _useSceneContext: 0
-  _context: {fileID: 0}
-  _bindType: 0
 --- !u!1 &6948315905772987035
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,9 +403,9 @@ GameObject:
   - component: {fileID: 7459035434382826352}
   - component: {fileID: 3396920244792369482}
   - component: {fileID: 1590960193896164370}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: CheckUpper
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

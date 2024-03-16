@@ -11,6 +11,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float _speed;//Karakterimizin hýzý
     [SerializeField] private float _speedMultiplier;//Koþu için bulunan hýz çarpaný
     [SerializeField] private bool run;//Karakterimizin koþu durumu
+    public bool CanInteractive;
     public bool CrouchBool;
     public bool NeedCrouch;
     #endregion//Haraket için bulunan deðiþkenler
@@ -80,6 +81,14 @@ public class PlayerMovementController : MonoBehaviour
         {
             transform.localScale = Vector3.one;
             CrouchBool = false;
+        }
+    }
+    public void Interactive(InputAction.CallbackContext context)
+    {
+        if (context.started && CanInteractive)
+        {
+            Debug.Log("Yeni sahneyi yükle");
+            return;
         }
     }
 
