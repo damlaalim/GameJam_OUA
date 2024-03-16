@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    [SerializeField] private GameObject _box;
-    [SerializeField] private Transform _startPoint;
+    [SerializeField] private GameObject _box;//görsel
+    [SerializeField] private Transform _startPoint;//karakterin spawnlanacaðý nokta
 
     [SerializeField] private float _laserLenght;//lazerin boyu
-    [SerializeField] private float _closedLaserDuration;//
-    [SerializeField] private float _onLaserDuration;
+    [SerializeField] private float _closedLaserDuration;//Lazerin kapalý kalma süresi
+    [SerializeField] private float _onLaserDuration;//Lazerin açýk kalma süresi
     [SerializeField] private float timer;
-    [SerializeField] private bool _isActive;
+    [SerializeField] private bool _isActive;//açýk veya kapalý olma durumu
     // Update is called once per frame
     void Update()
     {
@@ -28,23 +28,20 @@ public class Laser : MonoBehaviour
     }
     private void LaserActive()
     {
-        timer += Time.deltaTime;
-        if (timer >= _onLaserDuration)
+        timer += Time.deltaTime;//zamanlayýcýda geçen süreyi tutuyoruz 
+        if (timer >= _onLaserDuration)//süre açýk kalma süresine denk geldi ise
         {
             Debug.Log("Timer 0landý laser kapandý");
-            timer = 0;
-            _isActive = false;
-            _box.SetActive(false);
+            timer = 0;// zamanlayýcýyý sýfýrlýyoruz
+            _isActive = false;//lazeri kapatýyoruz
+            _box.SetActive(false);//görseli kapatýyoruz
         }
 
         Ray ray = new Ray(gameObject.transform.position, gameObject.transform.forward);
 
+        Debug.DrawRay(ray.origin, ray.direction * _laserLenght, Color.black);//raycast görselleþtirme
 
-        float rayDistance = _laserLenght;
-
-        Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.black);//raycast görselleþtirme
-
-        if (Physics.Raycast(ray, out RaycastHit hit, rayDistance))
+        if (Physics.Raycast(ray, out RaycastHit hit, _laserLenght))
         {
             if (hit.collider.GetComponent<PlayerMovementController>() != null)//raycast karakteri bulduysa
             {
