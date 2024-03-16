@@ -11,6 +11,8 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float _speed;//Karakterimizin hýzý
     [SerializeField] private float _speedMultiplier;//Koþu için bulunan hýz çarpaný
     [SerializeField] private bool run;//Karakterimizin koþu durumu
+    public bool CrouchBool;
+    public bool NeedCrouch;
     #endregion//Haraket için bulunan deðiþkenler
 
     #region Rotation
@@ -72,10 +74,12 @@ public class PlayerMovementController : MonoBehaviour
         if (context.started)
         {
             transform.localScale = new Vector3(1f, 0.5f, 1f);
+            CrouchBool = true;
         }
-        if (context.canceled)
+        if (context.canceled && !NeedCrouch)
         {
             transform.localScale = Vector3.one;
+            CrouchBool = false;
         }
     }
 
