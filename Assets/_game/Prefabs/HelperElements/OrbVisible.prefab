@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3704817726160599673}
   - component: {fileID: 8139245935045304567}
   - component: {fileID: 802282080696826082}
+  - component: {fileID: 5187786412580102886}
   m_Layer: 0
   m_Name: OrbVisible
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.18, y: 0.93, z: 0.04}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.3, y: 3.3, z: 3.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,3 +107,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5187786412580102886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3121014581635542796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca1b77d8a0e8471296f73f3d33b286be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxScale: 12
+  _minScale: 3
+  _halfScale: 5
+  _scaleGrowthTime: 0.5
+  _scaleReductionTime: 2
+  _scaleLoopTime: 0.6
+  _waitingTime: 5
+  _maxScaleEase: 27
