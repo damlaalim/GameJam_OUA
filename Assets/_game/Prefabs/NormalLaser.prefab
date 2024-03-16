@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &389395734741315886
+--- !u!1 &2976817318189104836
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7930273561803876079}
-  - component: {fileID: 67111829571124072}
+  - component: {fileID: 5917705056073097904}
+  - component: {fileID: 9178673985375395885}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -17,29 +17,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7930273561803876079
+--- !u!4 &5917705056073097904
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389395734741315886}
+  m_GameObject: {fileID: 2976817318189104836}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6540775052502068760}
+  m_Father: {fileID: 2186070446566733292}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!120 &67111829571124072
+--- !u!120 &9178673985375395885
 LineRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389395734741315886}
+  m_GameObject: {fileID: 2976817318189104836}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -122,7 +122,7 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -136,7 +136,7 @@ LineRenderer:
   m_UseWorldSpace: 0
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!1 &5947535771187645973
+--- !u!1 &3091767545590191019
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,47 +144,62 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6540775052502068760}
-  - component: {fileID: 7289364698888592644}
+  - component: {fileID: 2186070446566733292}
+  - component: {fileID: 5639908469133793783}
+  - component: {fileID: 8789693005807985410}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: NormalLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6540775052502068760
+--- !u!4 &2186070446566733292
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5947535771187645973}
+  m_GameObject: {fileID: 3091767545590191019}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.63, y: 0.96, z: -1.08}
+  m_LocalRotation: {x: 0, y: 0.8976394, z: 0, w: 0.44073063}
+  m_LocalPosition: {x: 0.981, y: 1.45, z: 5.327}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7930273561803876079}
+  - {fileID: 5917705056073097904}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7289364698888592644
+  m_LocalEulerAnglesHint: {x: 0, y: 127.699, z: 0}
+--- !u!114 &5639908469133793783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5947535771187645973}
+  m_GameObject: {fileID: 3091767545590191019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f3509a38d5c62149bb9a5017a5167db, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c3272aba16a43b4f82d51e8c4f1eed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _box: {fileID: 389395734741315886}
+  _player: {fileID: 0}
+  _box: {fileID: 2976817318189104836}
   _startPoint: {fileID: 0}
-  _laserLenght: 5
-  _closedLaserDuration: 4
-  _onLaserDuration: 6
+  _laserLenght: 0
+  _closedLaserDuration: 3
+  _onLaserDuration: 4
   timer: 0
   _isActive: 1
+--- !u!114 &8789693005807985410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3091767545590191019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74da6174b8e8b2e44976865e05810a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovePoint: {fileID: 0}
