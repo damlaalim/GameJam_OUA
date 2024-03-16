@@ -43,12 +43,12 @@ public class Laser : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, _laserLenght))
         {
-            if (hit.collider.GetComponent<PlayerMovementController>() != null)//raycast karakteri bulduysa
+            if (hit.collider.TryGetComponent<PlayerMovementController>(out var _player))//raycast karakteri bulduysa
             {
                 Debug.Log("Playera Çarptý");
-                hit.collider.GetComponent<PlayerMovementController>().enabled = false;
-                hit.collider.GetComponent<PlayerMovementController>().transform.position = Vector3.zero;
-                hit.collider.GetComponent<PlayerMovementController>().enabled = true;
+                _player.enabled = false;
+                _player.transform.position = Vector3.zero;
+                _player.enabled = true;
             }
             else//bulamadýysa
                 Debug.Log("Iþýn bir nesneye çarptý: " + hit.collider.gameObject.name);
