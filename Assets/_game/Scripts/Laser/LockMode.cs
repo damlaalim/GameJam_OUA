@@ -5,13 +5,20 @@ using UnityEngine;
 public class LockMode :  Laser
 {
     private bool _isLocked = true;
+    [SerializeField] float shootdelay;
     [SerializeField] private float _lockTimer;
     [SerializeField] private float _laserLockTime;
-
+    private FieldOfView _fieldOfView;
+    private ParticleSystem _particleSystem;
+    private void Start()
+    {
+        _fieldOfView = GetComponent<FieldOfView>();
+        _particleSystem = GetComponent<ParticleSystem>();
+    }
     private void Update()
     {
         float distance = Vector3.Distance(_player.transform.position, this.transform.position);
-        if (distance <= 10f)
+        if (_fieldOfView.canSeePlayer)
         {
             _box.SetActive(true);
             LaserLock(distance);
@@ -32,6 +39,7 @@ public class LockMode :  Laser
             laserColor.gameObject.transform.localScale = new Vector3(1f, 1f, distance);
             laserColor.startColor = Color.white;
             laserColor.endColor = Color.white;
+            _laserLenght = distance;
             if (_lockTimer >= _laserLockTime)
             {
                 _lockTimer = 0;
@@ -41,17 +49,24 @@ public class LockMode :  Laser
         }
         else
         {
-            //konumunda dur
             _lockTimer += Time.deltaTime;
-            laserColor.startColor = Color.red;
-            laserColor.endColor = Color.red;
-            if (_lockTimer >= 1f)
-            {
-                _lockTimer = 0;
-                _isLocked = true;
-            }
+            shootdelay += Time.deltaTime;
+            //konumunda dur
             //raycastý aç
-            Raycast();
+            if (shootdelay >= 0.7f)
+            {
+                Raycast();
+                shootdelay = 0;
+                laserColor.startColor = Color.red;
+                laserColor.endColor = Color.red;
+            }
+            if(_lockTimer >= 2f)
+            {
+                _isLocked = true;
+                _lockTimer = 0;
+                shootdelay = 0;
+            }
         }
     }
+
 }

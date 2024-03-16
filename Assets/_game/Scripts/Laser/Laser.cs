@@ -18,15 +18,20 @@ public class Laser : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, _laserLenght))
         {
-            if (hit.collider.TryGetComponent<PlayerMovementController>(out var _player))//raycast karakteri bulduysa
+            if (hit.collider.tag == "Player")//raycast karakteri bulduysa
             {
-                Debug.Log("Playera Çarptý");
-                _player.enabled = false;
-                _player.transform.position = Vector3.zero;
-                _player.enabled = true;
+                Debug.Log("Playeri vurdu");
+                ReturnBase();
             }
             else//bulamadýysa
                 Debug.Log("Iþýn bir nesneye çarptý: " + hit.collider.gameObject.name);
         }
+    }
+
+    private void ReturnBase()
+    {
+        _player.GetComponent<PlayerFall>().ResetCamera();
+        _player.GetComponent<PlayerFall>().ResetPosition();
+
     }
 }

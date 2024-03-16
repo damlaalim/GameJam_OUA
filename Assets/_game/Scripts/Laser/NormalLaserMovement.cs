@@ -14,6 +14,6 @@ public class NormalLaserMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.DOMove(MovePoint.position, 2f).SetLoops(-1, LoopType.Yoyo);
+
     }
 }
