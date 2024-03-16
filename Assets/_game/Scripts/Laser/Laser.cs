@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    [SerializeField] private GameObject Box;
+    [SerializeField] private GameObject _box;
+    [SerializeField] private Transform _startPoint;
 
     [SerializeField] private float _laserLenght;//lazerin boyu
     [SerializeField] private float _closedLaserDuration;//
@@ -33,7 +34,7 @@ public class Laser : MonoBehaviour
             Debug.Log("Timer 0landý laser kapandý");
             timer = 0;
             _isActive = false;
-            Box.SetActive(false);
+            _box.SetActive(false);
         }
 
         Ray ray = new Ray(gameObject.transform.position, gameObject.transform.forward);
@@ -46,7 +47,12 @@ public class Laser : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, rayDistance))
         {
             if (hit.collider.GetComponent<PlayerMovementController>() != null)//raycast karakteri bulduysa
+            {
                 Debug.Log("Playera Çarptý");
+                hit.collider.GetComponent<PlayerMovementController>().enabled = false;
+                hit.collider.GetComponent<PlayerMovementController>().transform.position = Vector3.zero;
+                hit.collider.GetComponent<PlayerMovementController>().enabled = true;
+            }
             else//bulamadýysa
                 Debug.Log("Iþýn bir nesneye çarptý: " + hit.collider.gameObject.name);
         }
@@ -59,7 +65,7 @@ public class Laser : MonoBehaviour
             Debug.Log("Timer 0landý laser açýldý");
             timer = 0;
             _isActive = true;
-            Box.SetActive(true);
+            _box.SetActive(true);
         }
     }
 }
