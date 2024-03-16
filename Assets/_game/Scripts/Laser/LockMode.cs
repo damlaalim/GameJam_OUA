@@ -8,24 +8,20 @@ public class LockMode :  Laser
     [SerializeField] float shootdelay;
     [SerializeField] private float _lockTimer;
     [SerializeField] private float _laserLockTime;
+
+    private Turet _turet;
     private FieldOfView _fieldOfView;
-    private ParticleSystem _particleSystem;
     private void Start()
     {
-        _fieldOfView = GetComponent<FieldOfView>();
-        _particleSystem = GetComponent<ParticleSystem>();
+        _turet = GetComponentInParent<Turet>();
+        _fieldOfView = GetComponentInParent<FieldOfView>();
     }
     private void Update()
     {
         float distance = Vector3.Distance(_player.transform.position, this.transform.position);
         if (_fieldOfView.canSeePlayer)
         {
-            _box.SetActive(true);
-            LaserLock(distance);
-        }
-        else
-        {
-            _box.SetActive(false);
+            LaserLock(distance/5);
         }
     }
     private void LaserLock(float distance)
@@ -34,7 +30,7 @@ public class LockMode :  Laser
 
         if (_isLocked)
         {
-            transform.LookAt(_player.transform);
+            _turet.CanLook = true;
             _lockTimer += Time.deltaTime;
             laserColor.gameObject.transform.localScale = new Vector3(1f, 1f, distance);
             laserColor.startColor = Color.white;
@@ -49,6 +45,7 @@ public class LockMode :  Laser
         }
         else
         {
+            _turet.CanLook = false;
             _lockTimer += Time.deltaTime;
             shootdelay += Time.deltaTime;
             //konumunda dur
@@ -60,7 +57,7 @@ public class LockMode :  Laser
                 laserColor.startColor = Color.red;
                 laserColor.endColor = Color.red;
             }
-            if(_lockTimer >= 2f)
+            if(_lockTimer >= 1.5f)
             {
                 _isLocked = true;
                 _lockTimer = 0;

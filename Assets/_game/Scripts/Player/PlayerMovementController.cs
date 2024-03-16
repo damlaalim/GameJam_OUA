@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovementController : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float _speed;//Karakterimizin hýzý
     [SerializeField] private float _speedMultiplier;//Koþu için bulunan hýz çarpaný
     [SerializeField] private bool run;//Karakterimizin koþu durumu
+    [HideInInspector] public GameObject door;
+    [HideInInspector] public float DoorRotation;
+    public bool CanInteractive;
     public bool CrouchBool;
     public bool NeedCrouch;
     #endregion//Haraket için bulunan deðiþkenler
@@ -82,6 +86,15 @@ public class PlayerMovementController : MonoBehaviour
             CrouchBool = false;
         }
     }
+    public void Interactive(InputAction.CallbackContext context)
+    {
+        if (context.started && CanInteractive)
+        {
+            Debug.Log("Yeni sahneyi yükle");
+            OpenDoor(DoorRotation);
+            return;
+        }
+    }
 
     private void ApplyMovement()//Karakterin haraket kodlarý
     {
@@ -108,6 +121,10 @@ public class PlayerMovementController : MonoBehaviour
             _velocity += _gravity * gravityMultiplier * Time.deltaTime; // karkter zýplama durumunda ise ona uygulanan yerçekimi zamanla artýyor
         }
         _direction.y = _velocity; // yerçekimi karaktere uygulanýyor
+    }
+    private void OpenDoor(float DoorRotation)
+    {
+        door.transform.DORotate(new Vector3(0f, DoorRotation, 0f), 1f);
     }
 
     private bool IsGrounded() => _characterController.isGrounded;//Karakteri yerde olup olmadýðýný kontrol ediyor
