@@ -45,3 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _laserLenght: 5
+  _closedLaserDuration: 4
+  _onLaserDuration: 6
+  timer: 0
+  _isActive: 0
