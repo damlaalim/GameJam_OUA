@@ -23,19 +23,21 @@ public class PlayerFall : MonoBehaviour
             virtualCamera.Follow = null;
             virtualCamera.LookAt = null;
             // respawn delay
-            Invoke("ResetPosition", 0.5f);
+            ResetPosition();
         }
     }
 
     // fall sonrasý reset fonksiyonunun çaðýrýlmasý
-    private void ResetPosition()
+    public void ResetPosition()
     {
+        gameObject.GetComponent<PlayerMovementController>().enabled = false;
         transform.position = startingPosition; // start pos
         Invoke("ResetCamera", 0.2f);
     }
-    private void ResetCamera()
+    public void ResetCamera()
     {
         virtualCamera.Follow = gameObject.transform;
         virtualCamera.LookAt = gameObject.transform;
+        gameObject.GetComponent<PlayerMovementController>().enabled = true;
     }
 }
