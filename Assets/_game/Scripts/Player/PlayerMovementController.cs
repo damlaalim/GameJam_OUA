@@ -99,8 +99,9 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (context.started && CanInteractive)
         {
-            Debug.Log("Yeni sahneyi yükle");
-            OpenDoor(DoorRotation);
+            // Debug.Log("Yeni sahneyi yükle");
+            // OpenDoor(DoorRotation);
+            levelManager.LoadNextLevel();
             return;
         }
     }

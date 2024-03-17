@@ -679,6 +679,7 @@ MonoBehaviour:
   CanInteractive: 0
   CrouchBool: 0
   NeedCrouch: 0
+  levelManager: {fileID: 0}
   smoothTime: 0.05
   gravityMultiplier: 1
   _jumpPower: 2.84
@@ -748,7 +749,19 @@ MonoBehaviour:
     m_ActionId: 5a0b56b5-a99d-42c4-8579-f53dde08f98d
     m_ActionName: GamePlay/Crouch[/Keyboard/ctrl]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4830192789420265111}
+        m_TargetAssemblyTypeName: PlayerMovementController, Assembly-CSharp
+        m_MethodName: Interactive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 950f8642-ec72-4a95-b490-702dcceb2a6f
     m_ActionName: GamePlay/Interactive[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
