@@ -6,13 +6,16 @@ public class TPSCamera : MonoBehaviour
 {
     public CharacterController controller;
     public Transform cam;
-    Animator animController;
+    public Animator animController;
     public float moveSpeed = 6f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
     private void Start()
     {
-        animController = GetComponentInChildren<Animator>();
+        if(animController == null)
+        {
+            animController = GetComponentInChildren<Animator>();
+        }
     }
     void Update()
     {
