@@ -80,7 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelList:
   - {fileID: 7865373026302800750, guid: 1192a134d8548e440ba5bbbeb173c688, type: 3}
-  - {fileID: 1930621226107539331, guid: ecec6bac80aa8f447bccdfbbd4e65556, type: 3}
 --- !u!114 &7838954469787177612
 MonoBehaviour:
   m_ObjectHideFlags: 0

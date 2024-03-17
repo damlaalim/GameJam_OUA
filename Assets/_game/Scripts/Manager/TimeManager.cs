@@ -16,7 +16,12 @@ namespace _game.Scripts.Manager
         [SerializeField] private TextMeshProUGUI _timeText;
 
         private Coroutine _countdownRoutine;
-        
+
+        private void Awake()
+        {
+            _timeText.enabled = false;
+        }
+
         public void StartCountdown(CountdownType countdownType)
         {
             if (!_countdownTimeList.ContainsKey(countdownType))
