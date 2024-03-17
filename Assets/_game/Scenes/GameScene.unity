@@ -377,7 +377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1552730101
 RectTransform:
   m_ObjectHideFlags: 0
@@ -510,6 +510,10 @@ PrefabInstance:
       propertyPath: _timeText
       value: 
       objectReference: {fileID: 1552730102}
+    - target: {fileID: 5864423994510039504, guid: 5655979c72281fa488c022a1ad9cb015, type: 3}
+      propertyPath: _levelList.Array.data[0]
+      value: 
+      objectReference: {fileID: 5391807764345863718, guid: 0889184a5a1782848b2bcd80b863cf1f, type: 3}
     - target: {fileID: 7091249793080928841, guid: 5655979c72281fa488c022a1ad9cb015, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
