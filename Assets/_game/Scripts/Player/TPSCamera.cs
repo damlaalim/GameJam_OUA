@@ -19,10 +19,21 @@ public class TPSCamera : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-        Direction(direction);
-
-        float speed = direction.magnitude;
-        animController.SetFloat("Speed", speed);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            direction *= 2;
+            Direction(direction);
+            float speed = direction.magnitude;
+            animController.SetFloat("Speed", speed);
+            Debug.Log(speed);
+        }
+        else
+        {
+            Direction(direction);
+            float speed = direction.magnitude;
+            animController.SetFloat("Speed", speed);
+            Debug.Log(speed);
+        }
     }
     public void Direction(Vector3 direction)
     {
@@ -33,14 +44,13 @@ public class TPSCamera : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            if (Input.GetKey(KeyCode.LeftShift))
+            if(direction.magnitude == 2)
             {
-                controller.Move(moveDir.normalized * moveSpeed * 2 * Time.deltaTime);
+                controller.Move(moveDir.normalized * moveSpeed * Time.deltaTime * 2);
             }
             else
             {
                 controller.Move(moveDir.normalized * moveSpeed * Time.deltaTime);
-                
             }
         }
     }

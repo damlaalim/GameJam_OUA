@@ -83,12 +83,12 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (context.started)
         {
-            transform.localScale = new Vector3(1f, 0.5f, 1f);
+            //transform.localScale = new Vector3(1f, 0.5f, 1f);
             CrouchBool = true;
         }
         if (context.canceled && !NeedCrouch)
         {
-            transform.localScale = Vector3.one;
+            //transform.localScale = Vector3.one;
             CrouchBool = false;
         }
     }
