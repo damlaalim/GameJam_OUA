@@ -9,16 +9,16 @@ public class Laser : MonoBehaviour
     [SerializeField] private Transform _startPoint;//karakterin spawnlanacaðý nokta
 
     [SerializeField] protected float _laserLenght;//lazerin boyu
-    
+
     public void Raycast()
     {
         Ray ray = new Ray(gameObject.transform.position, gameObject.transform.forward);
 
-        Debug.DrawRay(ray.origin, ray.direction * _laserLenght, Color.cyan);//raycast görselleþtirme
+        Debug.DrawRay(ray.origin, ray.direction * _laserLenght, Color.red);//raycast görselleþtirme
 
         if (Physics.Raycast(ray, out RaycastHit hit, _laserLenght))
         {
-            if (hit.collider.tag == "Player")//raycast karakteri bulduysa
+            if (hit.transform.gameObject.tag == "Player")//raycast karakteri bulduysa
             {
                 Debug.Log("Playeri vurdu");
                 ReturnBase();
