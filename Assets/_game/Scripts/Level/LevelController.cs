@@ -14,6 +14,7 @@ namespace _game.Scripts.Level
         public virtual void LoadLevel(TimeManager timeManager, LevelManager levelManager)
         {
             _levelManager = levelManager;
+            playerController.GetComponent<PlayerMovementController>().levelManager = levelManager;
         }
         
         public virtual void DisposeLevel()

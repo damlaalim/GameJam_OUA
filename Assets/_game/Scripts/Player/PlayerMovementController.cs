@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using _game.Scripts.Level;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovementController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerMovementController : MonoBehaviour
     public bool NeedCrouch;
     #endregion//Haraket için bulunan deðiþkenler
 
+    public LevelManager levelManager;
+    
     #region Rotation
     [SerializeField] private float smoothTime = 0.05f;//Dönüþ için yumuþatma
     private float _currentVelocity;
