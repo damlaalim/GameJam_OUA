@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 1827976040885517159}
   - component: {fileID: 3539133983168877088}
   - component: {fileID: 5026360585847372791}
+  - component: {fileID: 8336593733043146226}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -140,8 +141,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3553275932708958264}
   - {fileID: 7459035434382826352}
@@ -259,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adde13ee53e5f414bbaa112dc2d37437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotation: 0
+  Rotation: 1
   _speed: 3
   _speedMultiplier: 2
   run: 0
@@ -270,7 +271,7 @@ MonoBehaviour:
   NeedCrouch: 0
   smoothTime: 0.05
   gravityMultiplier: 1
-  _jumpPower: 4
+  _jumpPower: 9
 --- !u!114 &1827976040885517159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,19 +298,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -4830192789420265111}
-        m_TargetAssemblyTypeName: PlayerMovementController, Assembly-CSharp
-        m_MethodName: Move
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 1df81ca1-14fd-4a29-9167-773872354540
     m_ActionName: GamePlay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
@@ -329,19 +318,7 @@ MonoBehaviour:
     m_ActionId: 2d5f8837-f35d-4831-b6f3-f9d381b24ef3
     m_ActionName: GamePlay/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -4830192789420265111}
-        m_TargetAssemblyTypeName: PlayerMovementController, Assembly-CSharp
-        m_MethodName: Run
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 3a0e2be1-0a6d-4f40-be60-37f42064c5fc
     m_ActionName: GamePlay/Run[/Keyboard/leftShift]
   - m_PersistentCalls:
@@ -384,6 +361,7 @@ MonoBehaviour:
   virtualCamera: {fileID: 0}
   minHeightToFall: -0.7
   startingPosition: {x: 0, y: 0, z: 0}
+  GoToSpawn: 0
 --- !u!114 &5026360585847372791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +374,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0dad4f23e4497c9fc6f9c9d3a5305c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8336593733043146226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2273505580268083502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7cfe74753d7ec4b974c2b7f8b0af2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: -6940517174491599708}
+  cam: {fileID: 0}
+  moveSpeed: 9.57
+  turnSmoothTime: 0.3
 --- !u!1 &6948315905772987035
 GameObject:
   m_ObjectHideFlags: 0

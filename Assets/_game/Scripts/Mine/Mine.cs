@@ -11,7 +11,6 @@ public class Mine : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerFall>().ResetCamera();
             other.GetComponent<PlayerFall>().ResetPosition();
             Explosion.SetActive(true);
             starttimer = true;
