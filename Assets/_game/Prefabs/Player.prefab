@@ -123,7 +123,6 @@ GameObject:
   - component: {fileID: 1827976040885517159}
   - component: {fileID: 3539133983168877088}
   - component: {fileID: 5026360585847372791}
-  - component: {fileID: 8664543330726162295}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -260,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adde13ee53e5f414bbaa112dc2d37437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Rotation: 0
   _speed: 3
   _speedMultiplier: 2
   run: 0
@@ -396,24 +396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0dad4f23e4497c9fc6f9c9d3a5305c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8664543330726162295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2273505580268083502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 5026360585847372791}
-  _identifier: 
-  _useSceneContext: 0
-  _context: {fileID: 0}
-  _bindType: 0
 --- !u!1 &6948315905772987035
 GameObject:
   m_ObjectHideFlags: 0

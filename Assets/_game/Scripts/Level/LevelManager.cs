@@ -20,7 +20,6 @@ namespace _game.Scripts.Level
         private LevelController _createdLevel;
 
         [Inject] private TimeManager _timeManager;
-        [Inject] private PlayerController _player;
 
         private void Start()
         {
@@ -37,7 +36,7 @@ namespace _game.Scripts.Level
             _createdLevel = Instantiate(_levelList[CurrentLevel - 1]);
             _createdLevel.transform.position = Vector3.zero;
             
-            _createdLevel.LoadLevel(_timeManager, this, _player);
+            _createdLevel.LoadLevel(_timeManager, this);
         }
 
         public void ClearLevel()

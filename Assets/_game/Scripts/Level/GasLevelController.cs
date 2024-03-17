@@ -1,20 +1,15 @@
 ﻿using _game.Scripts.Data;
-using Zenject;
 using _game.Scripts.Manager;
-using _game.Scripts.Player;
-using UnityEngine;
 
 namespace _game.Scripts.Level
 {
     public class GasLevelController : LevelController
     {
-        private PlayerController _player;
         private TimeManager _timeManager;
 
-        public override void LoadLevel(TimeManager timeManager, LevelManager levelManager, PlayerController player)
+        public override void LoadLevel(TimeManager timeManager, LevelManager levelManager)
         {
-            base.LoadLevel(timeManager, levelManager, player);
-            _player = player;
+            base.LoadLevel(timeManager, levelManager);
             _timeManager = timeManager;
             _timeManager.CountdownIsOver += DOCountdownIsOver;
             _timeManager.StartCountdown(CountdownType.GasLevel);
@@ -29,7 +24,7 @@ namespace _game.Scripts.Level
 
         private void DOCountdownIsOver(CountdownType obj)
         {
-            _player.Dead();
+            playerController.Dead();
         }
     }
 }

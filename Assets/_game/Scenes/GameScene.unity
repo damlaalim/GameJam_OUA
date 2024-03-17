@@ -394,8 +394,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -85.7}
-  m_SizeDelta: {x: 632.2, y: 171.4}
+  m_AnchoredPosition: {x: 0, y: -57.25}
+  m_SizeDelta: {x: 632.2, y: 114.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1552730102
 MonoBehaviour:
@@ -444,13 +444,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 145.85
-  m_fontSizeBase: 145.85
+  m_fontSize: 68.47
+  m_fontSizeBase: 68.47
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -505,10 +505,6 @@ PrefabInstance:
     - target: {fileID: 934400741266267524, guid: 5655979c72281fa488c022a1ad9cb015, type: 3}
       propertyPath: m_Name
       value: Managers
-      objectReference: {fileID: 0}
-    - target: {fileID: 1415420095396110174, guid: 5655979c72281fa488c022a1ad9cb015, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4568282791601527788, guid: 5655979c72281fa488c022a1ad9cb015, type: 3}
       propertyPath: _timeText

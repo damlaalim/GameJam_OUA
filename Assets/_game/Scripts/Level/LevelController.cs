@@ -7,9 +7,11 @@ namespace _game.Scripts.Level
 {
     public class LevelController : MonoBehaviour
     {
+        public PlayerController playerController; 
+            
         private LevelManager _levelManager;
 
-        public virtual void LoadLevel(TimeManager timeManager, LevelManager levelManager, PlayerController player)
+        public virtual void LoadLevel(TimeManager timeManager, LevelManager levelManager)
         {
             _levelManager = levelManager;
         }
