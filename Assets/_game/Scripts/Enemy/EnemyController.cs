@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using _game.Scripts.Player;
-using Zenject;
+using _game.Scripts.Level;
 using Random = UnityEngine.Random;
 
 namespace _game.Scripts.Enemy
@@ -29,13 +28,12 @@ namespace _game.Scripts.Enemy
                 _isChasing = value;
             }   
         }
-        
+
+        [SerializeField] private LevelController _levelController;
         [SerializeField] private LayerMask _groundLayer, _playerLayer;
         [SerializeField] private float _sightRange, _walkPointRange;
         [SerializeField] private MeshRenderer _triggerAreaMesh;
         [SerializeField] private Color _dangerColor, _safeColor;
-
-        [Inject] private PlayerController _player;
 
         private Vector3 _walkPoint;
         private NavMeshAgent _agent;
@@ -84,7 +82,7 @@ namespace _game.Scripts.Enemy
 
         private void ChasePlayer()
         {
-            _agent.SetDestination(_player.transform.position);
+            _agent.SetDestination(_levelController.playerController.transform.position);
             _triggerAreaMesh.material.color = _dangerColor;
         }
 
@@ -98,7 +96,7 @@ namespace _game.Scripts.Enemy
         {
             _isChasing = false;
             _agent.SetDestination(transform.position);
-            _player.Dead();
+            _levelController.playerController.Dead();
         }
     }
 }

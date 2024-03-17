@@ -36,8 +36,11 @@ public class PlayerFall : MonoBehaviour
     }
     public void ResetCamera()
     {
-        virtualCamera.Follow = gameObject.transform;
-        virtualCamera.LookAt = gameObject.transform;
-        gameObject.GetComponent<PlayerMovementController>().enabled = true;
+        if(virtualCamera != null)
+        {
+            virtualCamera.Follow = gameObject.transform;
+            virtualCamera.LookAt = gameObject.transform;
+            gameObject.GetComponent<PlayerMovementController>().enabled = true;
+        }
     }
 }

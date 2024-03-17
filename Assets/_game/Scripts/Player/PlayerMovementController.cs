@@ -45,9 +45,13 @@ public class PlayerMovementController : MonoBehaviour
     private void Update()
     {
         Gravity();
-        if(Rotation)
+        ApplyRotation();
+        if (Rotation)
+        {
             ApplyRotation();
-        ApplyMovement();
+            ApplyMovement();
+        }
+        Gravity();
     }
 
     public void Move(InputAction.CallbackContext context)//Move eventinin tuþlarýný kullanýldýkça çaðrýlan fonksiyon
@@ -111,6 +115,7 @@ public class PlayerMovementController : MonoBehaviour
         var targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg;// karakterin bakmasýný istediðimi noktanýn açýsýný tutuyor
         var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);// istediðimiz açýya daha yumuþak bir þekilde bakýyor
         transform.rotation = Quaternion.Euler(0f, angle, 0f);// bu açý uygulaýyor
+        //transform.localRotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, angle, 0f), 1f * Time.deltaTime);
     }
     private void Gravity()//Yerçekimi kodlarý
     {

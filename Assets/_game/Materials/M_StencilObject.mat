@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_StencilObject
-  m_Shader: {fileID: 4800000, guid: d45ee8675be901e4eba10d2ebc303bfd, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4e981fc70928e8a4b8ea21eca0043e34, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -75,7 +75,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _StencilMask: 2
+    - _StencilMask: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
