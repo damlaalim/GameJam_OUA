@@ -102,7 +102,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 8664543330726162295}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,6 +263,9 @@ MonoBehaviour:
   _speed: 3
   _speedMultiplier: 2
   run: 0
+  door: {fileID: 0}
+  DoorRotation: 0
+  CanInteractive: 0
   CrouchBool: 0
   NeedCrouch: 0
   smoothTime: 0.05
@@ -357,6 +360,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5a0b56b5-a99d-42c4-8579-f53dde08f98d
     m_ActionName: GamePlay/Crouch[/Keyboard/ctrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 950f8642-ec72-4a95-b490-702dcceb2a6f
+    m_ActionName: GamePlay/Interactive[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: GamePlay
