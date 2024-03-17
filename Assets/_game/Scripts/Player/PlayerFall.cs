@@ -16,7 +16,7 @@ public class PlayerFall : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y <= minHeightToFall)
+        if (transform.position.y <= minHeightToFall && virtualCamera != null)
         {
             // fall log
             Debug.Log("fall");

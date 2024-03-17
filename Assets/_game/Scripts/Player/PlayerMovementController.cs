@@ -7,6 +7,7 @@ using DG.Tweening;
 public class PlayerMovementController : MonoBehaviour
 {
     #region Movement
+    public bool Rotation;
     private Vector2 _input;//Input Systemden aldýðýmýz ýnputlar
     private Vector3 _direction;//Karakterimizin haraket 3D edeceði yönler
     [SerializeField] private float _speed;//Karakterimizin hýzý
@@ -44,7 +45,8 @@ public class PlayerMovementController : MonoBehaviour
     private void Update()
     {
         Gravity();
-        ApplyRotation();
+        if(Rotation)
+            ApplyRotation();
         ApplyMovement();
     }
 
