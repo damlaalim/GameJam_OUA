@@ -6,17 +6,23 @@ public class TPSCamera : MonoBehaviour
 {
     public CharacterController controller;
     public Transform cam;
-
+    Animator animController;
     public float moveSpeed = 6f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
-
+    private void Start()
+    {
+        animController = GetComponentInChildren<Animator>();
+    }
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
         Direction(direction);
+
+        float speed = direction.magnitude;
+        animController.SetFloat("Speed", speed);
     }
     public void Direction(Vector3 direction)
     {
@@ -34,6 +40,7 @@ public class TPSCamera : MonoBehaviour
             else
             {
                 controller.Move(moveDir.normalized * moveSpeed * Time.deltaTime);
+                
             }
         }
     }
