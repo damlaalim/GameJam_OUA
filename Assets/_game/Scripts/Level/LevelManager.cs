@@ -1,6 +1,9 @@
 ﻿using System;
 using UnityEngine;
+using Zenject;
 using System.Collections.Generic;
+using _game.Scripts.Player;
+using _game.Scripts.Manager;
 
 namespace _game.Scripts.Level
 {
@@ -14,7 +17,10 @@ namespace _game.Scripts.Level
         
         [SerializeField] private List<LevelController> _levelList;
 
-        private GameObject _createdLevel;
+        private LevelController _createdLevel;
+
+        [Inject] private TimeManager _timeManager;
+        [Inject] private PlayerController _player;
 
         private void Start()
         {
@@ -23,35 +29,41 @@ namespace _game.Scripts.Level
 
         public void LoadLevel()
         {
-            if (_createdLevel is not null)
-                DestroyImmediate(_createdLevel);
+            ClearLevel();
             
             if (CurrentLevel == 0)
                 CurrentLevel = 1;
             
-            _createdLevel = Instantiate(_levelList[CurrentLevel - 1].gameObject);
+            _createdLevel = Instantiate(_levelList[CurrentLevel - 1]);
             _createdLevel.transform.position = Vector3.zero;
+            
+            _createdLevel.LoadLevel(_timeManager, this, _player);
         }
 
         public void ClearLevel()
         {
             if (_createdLevel is not null)
-                DestroyImmediate(_createdLevel);
+            {
+                _createdLevel.DisposeLevel();
+                DestroyImmediate(_createdLevel.gameObject);
+                _createdLevel = null;
+            }
         }
 
         public void ResetLevels()
         {
             CurrentLevel = 1;
-            if (_createdLevel is not null)
-                DestroyImmediate(_createdLevel);
+            ClearLevel();
             LoadLevel();
         }
 
         public void LoadNextLevel()
         {
             CurrentLevel++;
-            if (_createdLevel is not null)
-                DestroyImmediate(_createdLevel);
+            if (CurrentLevel > _levelList.Count)
+                CurrentLevel = 1;
+            
+            ClearLevel();
             LoadLevel();
         }
 
@@ -59,9 +71,7 @@ namespace _game.Scripts.Level
         {
             CurrentLevel--;
 
-            if (_createdLevel is not null)
-                DestroyImmediate(_createdLevel);
-            
+            ClearLevel();
             LoadLevel();
             return CurrentLevel;
         }
