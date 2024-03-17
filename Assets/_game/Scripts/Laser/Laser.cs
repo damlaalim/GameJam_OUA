@@ -9,7 +9,6 @@ public class Laser : MonoBehaviour
     [SerializeField] private Transform _startPoint;//karakterin spawnlanacaðý nokta
 
     [SerializeField] protected float _laserLenght;//lazerin boyu
-
     public void Raycast()
     {
         Ray ray = new Ray(gameObject.transform.position, gameObject.transform.forward);
@@ -30,7 +29,6 @@ public class Laser : MonoBehaviour
 
     private void ReturnBase()
     {
-        _player.GetComponent<PlayerFall>().ResetCamera();
         _player.GetComponent<PlayerFall>().ResetPosition();
 
     }

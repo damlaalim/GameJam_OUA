@@ -7,8 +7,8 @@ public class PlayerFall : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     public float minHeightToFall = -10f; // fall trashold
-    public Vector3 startingPosition; 
-
+    public Vector3 startingPosition;
+    public bool GoToSpawn;
     private void Start()
     {
         startingPosition = transform.position; 
@@ -25,22 +25,26 @@ public class PlayerFall : MonoBehaviour
             // respawn delay
             ResetPosition();
         }
+        if (GoToSpawn)
+        {
+            float distace = Vector3.Distance(this.transform.position, startingPosition);
+            ResetPosition();
+            if(distace <= 1.2f)
+            {
+                GoToSpawn = false;
+                gameObject.GetComponent<PlayerMovementController>().enabled = true;
+            }
+        }
     }
 
     // fall sonrasý reset fonksiyonunun çaðýrýlmasý
     public void ResetPosition()
     {
+        GoToSpawn = true;
         gameObject.GetComponent<PlayerMovementController>().enabled = false;
         transform.position = startingPosition; // start pos
-        Invoke("ResetCamera", 0.2f);
+        virtualCamera.Follow = gameObject.transform;
+        virtualCamera.LookAt = gameObject.transform;
     }
-    public void ResetCamera()
-    {
-        if(virtualCamera != null)
-        {
-            virtualCamera.Follow = gameObject.transform;
-            virtualCamera.LookAt = gameObject.transform;
-            gameObject.GetComponent<PlayerMovementController>().enabled = true;
-        }
-    }
+
 }

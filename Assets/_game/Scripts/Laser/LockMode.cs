@@ -22,7 +22,7 @@ public class LockMode :  Laser
         if (_fieldOfView.canSeePlayer)
         {
             _box.SetActive(true);
-            LaserLock(distance/5);
+            LaserLock(distance);
         }
         else
         {
@@ -40,7 +40,7 @@ public class LockMode :  Laser
             laserColor.gameObject.transform.localScale = new Vector3(1f, 1f, distance);
             laserColor.startColor = Color.white;
             laserColor.endColor = Color.white;
-            _laserLenght = distance * 5;
+            _laserLenght = 100;
             if (_lockTimer >= _laserLockTime)
             {
                 _lockTimer = 0;
@@ -57,7 +57,7 @@ public class LockMode :  Laser
             //raycastý aç
             if (shootdelay >= 0.7f)
             {
-                _laserLenght = distance * 5;
+                _laserLenght = 100;
                 Raycast();
                 shootdelay = 0;
                 laserColor.startColor = Color.red;
