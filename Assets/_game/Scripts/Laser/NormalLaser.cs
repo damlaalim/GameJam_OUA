@@ -12,7 +12,7 @@ public class NormalLaser : Laser
     [SerializeField] private bool _isActive;//açýk veya kapalý olma durumu
     private void Start()
     {
-        _laserLenght = _box.gameObject.transform.localScale.z;
+        _laserLenght = _box.gameObject.transform.localScale.z *2.2f;
     }
     void Update()
     {
