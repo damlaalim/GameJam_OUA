@@ -4,11 +4,11 @@ https://www.youtube.com/watch?v=pL2hGkpPgOs
 
 # Takımımız
 <ul>
-  <li><a href = "https://www.linkedin.com/in/damlaalim/"> Damla Alim </a></li>
-  <li>Halil İbrahim Eriş</li>
-  <li>Deniz Olcaycan</li>
+  <li><a href = "https://www.linkedin.com/in/damlaalim/"> Damla Alim </a> - Game Developer</li>
+  <li><a href = "https://www.linkedin.com/in/haliliibrahimeri%C5%9F/"> Halil İbrahim Eriş </a> - Game Developer</li>
+  <li><a href = "https://www.linkedin.com/in/denizolcaycan/"> Deniz Olcaycan </a> - Game Designer & Level Designer</li>
   <li>Beyza Balım Camgöz</li>
-  <li>Haktan Serin</li>
+  <li><a href = "https://www.linkedin.com/in/haktanserin/">Haktan Serin</a> - Game Developer</li>
 </ul>
 
 # Projede Kullanılan Teknolojiler
